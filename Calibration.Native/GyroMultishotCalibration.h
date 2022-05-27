@@ -15,3 +15,35 @@
 #define _COMMON_START_EXTERN_C_
 #define _COMMON_END_EXTERN_C_
 #endif
+
+_COMMON_START_EXTERN_C_
+
+#define GYRO_MULTISHOT_CONFIGURATION_DATA_COUNT 32
+
+typedef struct GyroMultishotConfiguration
+{
+	double Azimuth;
+	double Inclination;
+	double Toolface;
+
+	double Ax;
+	double Ay;
+	double Az;
+
+	double Uwx;
+	double Uwy;
+} GyroMultishotConfiguration;
+
+typedef struct GyroMultishotCalibrationArgs
+{
+	double Rotation;
+	double Latitude;
+	int IterationsCount;
+	int AxSign;
+	int AySign;
+	int AzSign;
+
+	GyroMultishotConfiguration Data[GYRO_MULTISHOT_CONFIGURATION_DATA_COUNT];
+} GyroMultishotCalibrationArgs;
+
+_COMMON_END_EXTERN_C_
