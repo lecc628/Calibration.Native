@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Calibration.Native\Calibration.Native.vcxproj" />
+  </ItemGroup>
+
 </Project>
