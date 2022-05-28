@@ -80,4 +80,6 @@ typedef struct GyroMultishotCalibrationResult
 	GyroMultishotConfigurationError Errors[GYRO_MULTISHOT_CONFIGURATION_DATA_COUNT];
 } GyroMultishotCalibrationResult;
 
+_COMMON_EXPORT_IMPORT_API_ void CalibrateGyroMultishot(const GyroMultishotCalibrationArgs& args, GyroMultishotCalibrationResult& result);
+
 _COMMON_END_EXTERN_C_
