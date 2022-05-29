@@ -76,4 +76,10 @@ namespace Calibration.Interop
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = Constants.GyroMultishotConfigurationDataCount)]
         public GyroMultishotConfigurationError[] Errors;
     }
+
+    public static class NativeMethods
+    {
+        [DllImport("C_DLL.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void CalibrateGyroMultishot(in GyroMultishotCalibrationArgs args, out GyroMultishotCalibrationResult result);
+    }
 }
