@@ -70,3 +70,26 @@ static void PrintGyroMultishotCalibrationArgs(in GyroMultishotCalibrationArgs ar
             data.Azimuth, data.Ax, data.Inclination, data.Ay, data.Toolface, data.Az, data.Uwx, data.Uwy);
     }
 }
+
+static void PrintGyroMultishotCalibrationResult(in GyroMultishotCalibrationResult result)
+{
+    Console.WriteLine("\n\nCalculated coefficients\n");
+    Console.WriteLine("KwX:\t{0:N6}\t|\tKwY:\t{1:N6}", result.KwX, result.KwY);
+    Console.WriteLine("DeltaX:\t{0:N6}\t|\tDeltaY:\t{1:N6}", result.DeltaX, result.DeltaY);
+    Console.WriteLine("RoX:\t{0:N6}\t|\tRoY:\t{1:N6}", result.RoX, result.RoY);
+    Console.WriteLine("EpsX:\t{0:N6}\t|\tEpsY:\t{1:N6}", result.EpsX, result.EpsY);
+    Console.WriteLine("Eta1X:\t{0:N6}\t|\tEta1Y:\t{1:N6}", result.Eta1X, result.Eta1Y);
+    Console.WriteLine("Eta2X:\t{0:N6}\t|\tEta2Y:\t{1:N6}", result.Eta2X, result.Eta2Y);
+    Console.WriteLine("TauX:\t{0:N6}\t|\tTauY:\t{1:N6}", result.TauX, result.TauY);
+    Console.WriteLine("AlpwXY:\t{0:N6}\t|\tAlpwYX:\t{1:N6}", result.AlpwXY, result.AlpwYX);
+
+    Console.WriteLine("\n\nCalculated errors\n");
+    foreach (var error in result.Errors)
+    {
+        Console.WriteLine(
+            "Azimuth: {0:N6}\tAxError: {1:N6}\t|\t" +
+            "Inclination: {2:N6}\tAyError: {3:N6}\t|\t" +
+            "Toolface: {4:N6}\tAzError: {5:N6}",
+            error.Azimuth, error.AxError, error.Inclination, error.AyError, error.Toolface, error.AzError);
+    }
+}
