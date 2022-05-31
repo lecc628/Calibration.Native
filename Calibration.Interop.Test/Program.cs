@@ -5,6 +5,22 @@ using Calibration.Interop;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
+static void Use_CalibrateGyroMultishot()
+{
+    /* Initializes the arguments in order to make the calibration. */
+    InitGyroMultishotCalibration(out GyroMultishotCalibrationArgs args);
+
+    /* Prints for checking. */
+    PrintGyroMultishotCalibrationArgs(in args, "\n\nArguments to make the calibration (before)\n");
+
+    /* Does the calibration. */
+    NativeMethods.CalibrateGyroMultishot(in args, out GyroMultishotCalibrationResult result);
+
+    /* Prints for checking. */
+    PrintGyroMultishotCalibrationArgs(in args, "\n\nArguments to make the calibration (after)\n");
+    PrintGyroMultishotCalibrationResult(in result);
+}
+
 static void InitGyroMultishotCalibration(out GyroMultishotCalibrationArgs args)
 {
     args = new GyroMultishotCalibrationArgs
