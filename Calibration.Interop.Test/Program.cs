@@ -2,10 +2,13 @@
 using Calibration;
 using Calibration.Interop;
 
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
 
-static void Use_CalibrateGyroMultishot()
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("\nExample using from CSharp code the CalibrateGyroMultishot fuction that is implemented in a C-style dll.");
+UseCalibrateGyroMultishotFunction();
+
+
+static void UseCalibrateGyroMultishotFunction()
 {
     /* Initializes the arguments in order to make the calibration. */
     InitGyroMultishotCalibration(out GyroMultishotCalibrationArgs args);
