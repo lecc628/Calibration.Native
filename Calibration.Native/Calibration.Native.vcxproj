@@ -139,10 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GyroMultishotCalibration.h" />
+    <ClInclude Include="ToolCalibration.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GyroMultishotCalibration.cpp" />
+    <ClCompile Include="ToolCalibration.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

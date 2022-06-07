@@ -4,111 +4,111 @@ using Calibration.Interop;
 
 
 // See https://aka.ms/new-console-template for more information
-Console.WriteLine("\nExample using from CSharp code the CalibrateGyroMultishot fuction that is implemented in a C-style dll.");
-UseCalibrateGyroMultishotFunction();
+Console.WriteLine("\nExample using from CSharp code the CalibrateTool fuction that is implemented in a C-style dll.");
+UseCalibrateToolFunction();
 
 
-static void UseCalibrateGyroMultishotFunction()
+static void UseCalibrateToolFunction()
 {
     /* Initializes the arguments in order to make the calibration. */
-    InitGyroMultishotCalibration(out GyroMultishotCalibrationArgs args);
+    InitToolCalibration(out ToolCalibrationArgs args);
 
     /* Prints for checking. */
-    PrintGyroMultishotCalibrationArgs(in args, "\n\nArguments to make the calibration (before)\n");
+    PrintToolCalibrationArgs(in args, "\n\nArguments to make the calibration (before)\n");
 
     /* Does the calibration. */
-    NativeMethods.CalibrateGyroMultishot(in args, out GyroMultishotCalibrationResult result);
+    NativeMethods.CalibrateTool(in args, out ToolCalibrationResult result);
 
     /* Prints for checking. */
-    PrintGyroMultishotCalibrationArgs(in args, "\n\nArguments to make the calibration (after)\n");
-    PrintGyroMultishotCalibrationResult(in result);
+    PrintToolCalibrationArgs(in args, "\n\nArguments to make the calibration (after)\n");
+    PrintToolCalibrationResult(in result);
 }
 
-static void InitGyroMultishotCalibration(out GyroMultishotCalibrationArgs args)
+static void InitToolCalibration(out ToolCalibrationArgs args)
 {
-    args = new GyroMultishotCalibrationArgs
+    args = new ToolCalibrationArgs
     {
-        Rotation = Constants.RotationRate,
-        Latitude = 36.71,
-        IterationsCount = 50,
-        AxSign = 1,
-        AySign = 1,
-        AzSign = -1,
-        Data = new GyroMultishotConfiguration[Constants.GyroMultishotConfigurationDataCount]
+        Arg00 = Constants.Const00,
+        Arg01 = 36.71,
+        Arg02 = 50,
+        Arg03 = 1,
+        Arg04 = 1,
+        Arg05 = -1,
+        Data = new ToolConfiguration[Constants.ToolConfigurationDataCount]
         {
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
-            new GyroMultishotConfiguration{ Azimuth = 0, Inclination = 1, Toolface = 2, Ax = 3, Ay = 4, Az = 5, Uwx = 6, Uwy = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
+            new ToolConfiguration{ Conf00 = 0, Conf01 = 1, Conf02 = 2, Conf03 = 3, Conf04 = 4, Conf05 = 5, Conf06 = 6, Conf07 = 7 },
         }
     };
 }
 
-static void PrintGyroMultishotCalibrationArgs(in GyroMultishotCalibrationArgs args, in string text)
+static void PrintToolCalibrationArgs(in ToolCalibrationArgs args, in string text)
 {
     Console.WriteLine(text);
-    Console.WriteLine("Rotation: {0:N6}\t|\tLatitude: {1:N6}", args.Rotation, args.Latitude);
-    Console.WriteLine("IterationsCount: {0}", args.IterationsCount);
-    Console.WriteLine("AxSign: {0}\t|\tAySign: {1}\t|\tAzSign: {2}", args.AxSign, args.AySign, args.AzSign);
+    Console.WriteLine("Arg00: {0:N6}\t|\tArg01: {1:N6}", args.Arg00, args.Arg01);
+    Console.WriteLine("Arg02: {0}", args.Arg02);
+    Console.WriteLine("Arg03: {0}\t|\tArg04: {1}\t|\tArg05: {2}", args.Arg03, args.Arg04, args.Arg05);
 
     foreach (var data in args.Data)
     {
         Console.WriteLine(
-            "Azimuth: {0:N6}\tAx: {1:N6}\t|\t" +
-            "Inclination: {2:N6}\tAy: {3:N6}\t|\t" +
-            "Toolface: {4:N6}\tAz: {5:N6}\t|\t" +
-            "Uwx: {6:N6}\tUwy: {7:N6}",
-            data.Azimuth, data.Ax, data.Inclination, data.Ay, data.Toolface, data.Az, data.Uwx, data.Uwy);
+            "Conf00: {0:N6}\tConf03: {1:N6}\t|\t" +
+            "Conf01: {2:N6}\tConf04: {3:N6}\t|\t" +
+            "Conf02: {4:N6}\tConf05: {5:N6}\t|\t" +
+            "Conf06: {6:N6}\tConf07: {7:N6}",
+            data.Conf00, data.Conf03, data.Conf01, data.Conf04, data.Conf02, data.Conf05, data.Conf06, data.Conf07);
     }
 }
 
-static void PrintGyroMultishotCalibrationResult(in GyroMultishotCalibrationResult result)
+static void PrintToolCalibrationResult(in ToolCalibrationResult result)
 {
-    Console.WriteLine("\n\nCalculated coefficients\n");
-    Console.WriteLine("KwX:\t{0:N6}\t|\tKwY:\t{1:N6}", result.KwX, result.KwY);
-    Console.WriteLine("DeltaX:\t{0:N6}\t|\tDeltaY:\t{1:N6}", result.DeltaX, result.DeltaY);
-    Console.WriteLine("RoX:\t{0:N6}\t|\tRoY:\t{1:N6}", result.RoX, result.RoY);
-    Console.WriteLine("EpsX:\t{0:N6}\t|\tEpsY:\t{1:N6}", result.EpsX, result.EpsY);
-    Console.WriteLine("Eta1X:\t{0:N6}\t|\tEta1Y:\t{1:N6}", result.Eta1X, result.Eta1Y);
-    Console.WriteLine("Eta2X:\t{0:N6}\t|\tEta2Y:\t{1:N6}", result.Eta2X, result.Eta2Y);
-    Console.WriteLine("TauX:\t{0:N6}\t|\tTauY:\t{1:N6}", result.TauX, result.TauY);
-    Console.WriteLine("AlpwXY:\t{0:N6}\t|\tAlpwYX:\t{1:N6}", result.AlpwXY, result.AlpwYX);
+    Console.WriteLine("\n\nCalculated results\n");
+    Console.WriteLine("Result00:\t{0:N6}\t|\tResult08:\t{1:N6}", result.Result00, result.Result08);
+    Console.WriteLine("Result01:\t{0:N6}\t|\tResult09:\t{1:N6}", result.Result01, result.Result09);
+    Console.WriteLine("Result02:\t{0:N6}\t|\tResult10:\t{1:N6}", result.Result02, result.Result10);
+    Console.WriteLine("Result03:\t{0:N6}\t|\tResult11:\t{1:N6}", result.Result03, result.Result11);
+    Console.WriteLine("Result04:\t{0:N6}\t|\tResult12:\t{1:N6}", result.Result04, result.Result12);
+    Console.WriteLine("Result05:\t{0:N6}\t|\tResult13:\t{1:N6}", result.Result05, result.Result13);
+    Console.WriteLine("Result06:\t{0:N6}\t|\tResult14:\t{1:N6}", result.Result06, result.Result14);
+    Console.WriteLine("Result07:\t{0:N6}\t|\tResult15:\t{1:N6}", result.Result07, result.Result15);
 
     Console.WriteLine("\n\nCalculated errors\n");
     foreach (var error in result.Errors)
     {
         Console.WriteLine(
-            "Azimuth: {0:N6}\tAxError: {1:N6}\t|\t" +
-            "Inclination: {2:N6}\tAyError: {3:N6}\t|\t" +
-            "Toolface: {4:N6}\tAzError: {5:N6}",
-            error.Azimuth, error.AxError, error.Inclination, error.AyError, error.Toolface, error.AzError);
+            "Error00: {0:N6}\tError03: {1:N6}\t|\t" +
+            "Error01: {2:N6}\tError04: {3:N6}\t|\t" +
+            "Error02: {4:N6}\tError05: {5:N6}",
+            error.Error00, error.Error03, error.Error01, error.Error04, error.Error02, error.Error05);
     }
 }
